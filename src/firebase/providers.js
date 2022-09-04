@@ -45,7 +45,6 @@ export const signInWithUserPassword = async ({ email, password, displayName }) =
         const resp = await createUserWithEmailAndPassword( FirebaseAuth, email, password );
 
         const { uid, photoURL } = resp.user;
-        console.log(resp);
 
         //actualizar display en fb
         await updateProfile( FirebaseAuth.currentUser, {
@@ -58,8 +57,6 @@ export const signInWithUserPassword = async ({ email, password, displayName }) =
         }
 
     } catch (error) {
-
-        console.log(error)
 
         return {
             ok: false,
@@ -75,8 +72,6 @@ export const loginWithEmailPassword = async({ email, password }) => {
         const resp = await signInWithEmailAndPassword( FirebaseAuth, email, password );
 
         const { uid, photoURL, displayName } = resp.user;
-        console.log(resp);
-
 
         return {
             ok: true,
@@ -84,8 +79,6 @@ export const loginWithEmailPassword = async({ email, password }) => {
         }
 
     } catch (error) {
-
-        console.log(error)
 
         return {
             ok: false,
